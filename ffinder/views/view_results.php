@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/style/ffinder.css"/>        
         <title></title>
     </head>
     <body>
@@ -10,7 +11,8 @@
         [Map]<br>
         <form method="post">
             <input type="hidden" name="action" value="start"/>
-            <input type="submit" value="try again">
+            <br>
+            <input type="submit" value="try again" class="btn">
         </form>
     </body>
 </html>

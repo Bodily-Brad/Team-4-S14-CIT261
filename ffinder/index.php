@@ -26,6 +26,19 @@ and open the template in the editor.
             break;
         case 'view_results':
             $results = 'Chicken Alfredo';
+            $pick = mt_rand(0, 2);
+            switch ($pick)
+            {
+                case 0:
+                    $results = 'Chinese Pizza';
+                    break;
+                case 1:
+                    $results = 'Western Sushi';
+                    break;
+                case 2:
+                    $results = 'Himalayan Tofu';
+                    break;
+            }
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_results.php');
             break;
     }
