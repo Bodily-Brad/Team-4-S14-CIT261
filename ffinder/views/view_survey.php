@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="/style/ffinder.css"/>
+        <link rel="stylesheet" type="text/css" href="/style/ffstyle.css"/>
         <title></title>
     </head>
     <body>

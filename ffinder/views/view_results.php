@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="/style/ffinder.css"/>        
+        <link rel="stylesheet" type="text/css" href="/style/ffstyle.css"/>        
         <title></title>
     </head>
     <body>
@@ -12,7 +12,7 @@
         <form method="post">
             <input type="hidden" name="action" value="start"/>
             <br>
-            <input type="submit" value="try again" class="btn">
+            <input type="submit" value="try again" class='btn'>
         </form>
     </body>
 </html>
