@@ -57,3 +57,57 @@ input.btn
     font-size: 1.5em;
     padding: 0.25em;    
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width: 480px) {
+    
+ body {
+     width: auto;
+     margin: auto;
+   
+     padding: 2%;
+     background-color: #292929;
+     text-align: center;
+}
+  #contentwrapper {
+     width: auto;
+     margin: auto;
+}  
+#button a:link, #button a:visited {
+    width: 60%;
+    margin: 0;
+}
+    .icon {
+     width: 20%;
+     height: 70px;
+     background-color: #0071bc;
+     display: inline-table;
+     border-radius: 5px;
+     margin: 3px;
+}
+    
+    #logo {
+     width: 60%;
+     margin: 0 auto;
+    
+}
+    
+
+}
+
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
