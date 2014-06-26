@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <img src='/media/images/brand_glass.png'>        
+        <img src='/media/images/logo.png'>        
         <h1>FoodFinder</h1>
         <form method="post">
             <label>Pizza</label><input type="checkbox">
