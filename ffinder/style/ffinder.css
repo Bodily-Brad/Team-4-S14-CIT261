@@ -1,30 +1,105 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Jun 11, 2014, 9:33:37 AM
-    Author     : Brad
-*/
-
-@import url(http://fonts.googleapis.com/css?family=Audiowide|Open+Sans);
-
+﻿html {
+     background-color: #333333;
+}
 body {
-    background-color: #333333;
-    color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
+     width: 500px;
+     margin: 10px auto;
+     height: 550px;
+     padding: 10px;
+     border-radius: 5px;
+     background-color: #292929;
+     text-align: center;
+}
+.icon {
+     width: 75px;
+     height: 75px;
+     background-color: #0071bc;
+     display: inline-table;
+     border-radius: 5px;
+     margin: 5px;
+}
+.icon:hover{
+     background-color: #55a3de
+}
+#contentwrapper {
+     width: 500px;
+     margin: auto;
+}
+#logo {
+     width: 270px;
+     margin: 0 auto;
+    
+}
+#button a:link, #button a:visited {
+     display: inline-table;
+     width: 240px;
+     color: white;
+     text-decoration: none;
+     font-size: 18px;
+     font-family: Tahoma, Arial;
+     background-color: #39b54a;
+     border-radius: 5px;
+     text-align: center;
+     padding: 8px;
+     margin: 5px;
+}
+#button a:hover {
+     background-color: #6ae87e
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Audiowide', cursive; 
+
+/* Smartphones (portrait and landscape) ----------- */
+  
+@media screen and (max-width: 480px) {
+    
+ body {
+     width: auto;
+     margin: auto;
+   
+     padding: 2%;
+     border-radius: none;
+     background-color: #292929;
+     text-align: center;
+}
+  #contentwrapper {
+     width: auto;
+     margin: auto;
+}  
+#button a:link, #button a:visited {
+    width: 60%;
+    margin: 0;
+}
+    .icon {
+     width: 20%;
+     height: 70px;
+     background-color: #0071bc;
+     display: inline-table;
+     border-radius: 5px;
+     margin: 3px;
+}
+    
+    #logo {
+     width: 60%;
+     margin: 0 auto;
+    
+}
+    
+
 }
 
-input.btn {
-    background-color: #39b54a;
-    color: #ffffff;
-    border-width: 0px;
-    border-radius: 0.5em;
-    font-size: 1.5em;
-    padding: 0.25em;
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
 }

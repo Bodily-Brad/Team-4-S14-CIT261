@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 11, 2014, 9:33:37 AM
+    Author     : Brad
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Audiowide|Open+Sans);
+
+body {
+    background-color: #333333;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Audiowide', cursive; 
+}
+
+input.btn {
+    background-color: #39b54a;
+    color: #ffffff;
+    border-width: 0px;
+    border-radius: 0.5em;
+    font-size: 1.5em;
+    padding: 0.25em;
+}
