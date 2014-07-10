@@ -30,13 +30,13 @@ and open the template in the editor.
             switch ($pick)
             {
                 case 0:
-                    $results = 'Chinese Pizza';
+                    $results = 'Chinese Food';
                     break;
                 case 1:
-                    $results = 'Western Sushi';
+                    $results = 'Sushi';
                     break;
                 case 2:
-                    $results = 'Himalayan Tofu';
+                    $results = 'Pizza';
                     break;
             }
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_results.php');

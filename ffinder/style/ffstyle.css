@@ -1,26 +1,72 @@
-﻿html {
+html {
      background-color: #333333;
 }
 body {
      width: 500px;
      margin: 10px auto;
-     height: 550px;
+     height: auto;
      padding: 10px;
+     padding-bottom: 50px;
      border-radius: 5px;
      background-color: #292929;
-     color: #ffffff;
      text-align: center;
+        -webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* H1, primarly for use with food suggestion result */
+h1 {
+    color: #39b54a;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
 }
 .icon {
      width: 75px;
      height: 75px;
+     -webkit-transition: background-color 1s, -webkit-transform 1.2s; /* For Safari 3.1 to 6.0 */
+     transition: background-color 1s, transform 1.2s;
      background-color: #0071bc;
      display: inline-table;
      border-radius: 5px;
      margin: 5px;
 }
 .icon:hover{
-     background-color: #55a3de
+    background-color: #77c5ff;
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    transform: rotate(360deg);
+    cursor: pointer;
+     
 }
 #contentwrapper {
      width: 500px;
@@ -29,6 +75,16 @@ body {
 #logo {
      width: 270px;
      margin: 0 auto;
+     -webkit-transition: -webkit-transform 0.3s;
+     transition: transform 0.3s;
+     -webkit-animation: fadein 4s; /* Safari and Chrome */
+     -moz-animation: fadein 4s; /* Firefox */
+     -ms-animation: fadein 4s; /* Internet Explorer */
+     -o-animation: fadein 4s; /* Opera */
+     animation: fadein 4s;
+    
+}
+#logo:hover {
     
 }
 #button a:link, #button a:visited {
@@ -43,22 +99,73 @@ body {
      text-align: center;
      padding: 8px;
      margin: 5px;
+     -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
+     transition: background-color 1s linear;
 }
 #button a:hover {
-     background-color: #6ae87e
+     background-color: #7bf98f;
+      
 }
 
-input.btn
-{
-    background-color: #39b54a;
-    color: #ffffff;
-    border-width: 0px;
-    border-radius: 0.5em;
-    font-size: 1.5em;
-    padding: 0.25em;    
+/* MAP STYLES */
+
+#map-canvas {
+    display: block;
+    height: 400px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 5px;
+    border: solid 2.5px #333;
 }
+/* RESULTS TAB ON MAP PAGE*/
+
+ #results {
+        display: block;
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+        color: white;
+        right: 5px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 5px;
+        background-color: transparent;
+      }
+      h2 {
+        font-size: 22px;
+        margin: 0 0 5px 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      li {
+        background-color: transparent;
+        padding: 10px;
+      }
+      li:nth-child(odd) {
+        background-color: #333333;
+      }
+      #more {
+     display: inline-table;
+     width: 240px;
+     color: white;
+     text-decoration: none;
+     font-size: 18px;
+     font-family: Tahoma, Arial;
+     background-color: #39b54a;
+     border-radius: 5px;
+     text-align: center;
+     padding: 8px;
+     margin: 5px;
+      }
+    #more:hover {
+    background-color: #6ae87e
+    }
 
 /* Smartphones (portrait and landscape) ----------- */
+  
 @media screen and (max-width: 480px) {
     
  body {
@@ -66,6 +173,7 @@ input.btn
      margin: auto;
    
      padding: 2%;
+     border-radius: 0;
      background-color: #292929;
      text-align: center;
 }
