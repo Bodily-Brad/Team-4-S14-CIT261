@@ -18,11 +18,11 @@
               <ul id="places"></ul>
               <div id="more" class="button">More results</div>
             </div>         
-            <form method="post">
-                <input type="hidden" name="action" value="start"/>
-                <br>
-                <input type="submit" value="try again" class='btn'>
-            </form>
         </span>
+        <form method="post">
+            <input type="hidden" name="action" value="start"/>
+            <br>
+            <input type="submit" value="try again" class='btn'>
+        </form>        
     </body>
 </html>

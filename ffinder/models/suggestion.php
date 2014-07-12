@@ -62,3 +62,27 @@ class Suggestion
         $this->qualities[$quality] = true;
     }
 }
+
+
+function suggestion_db_getSuggestions()
+{
+    global $db;
+    
+    $query = 
+            "SELECT name
+            FROM Suggestions";
+    
+    try {
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        $statement->closeCursor();
+    } catch (PDOException $ex) {
+        echo $ex->message;
+        exit;
+    }
+    
+    if (!empty($results))
+        return $results;
+    return false;
+}

@@ -30,6 +30,26 @@
                         clicker.setAttribute("status", "off");
                 }
             </script>
+            <?php
+                showIcons($suggestions);
+            ?>
         </span>
     </body>
 </html>
+
+<?php
+    function showIcon($suggestion)
+    {
+        echo "<div class='icon'>";
+        echo $suggestion['name'];
+        echo "</div>";        
+    }
+    
+    function showIcons($suggestions)
+    {
+        foreach ($suggestions as $suggestion)
+        {
+            showIcon($suggestion);
+        }        
+    }
+?>

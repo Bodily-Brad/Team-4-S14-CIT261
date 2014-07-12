@@ -5,6 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+    // get db
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/models/dbconn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/models/suggestion.php');
+
     // Get the action to perform
     if (isset($_POST['action']))
     {
@@ -22,6 +26,7 @@ and open the template in the editor.
     switch ($action)
     {
         case 'start':
+            $suggestions = suggestion_db_getSuggestions();
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_survey.php');
             break;
         case 'view_results':
