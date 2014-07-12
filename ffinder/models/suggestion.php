@@ -8,7 +8,20 @@
  */
 class Suggestion
 {
+    // CONSTRUCTOR
+    function Suggestion($name, $description)
+    {
+        $this->name = $name;
+        $this->description = $description;
+    }
+    
     // PUBLIC MEMBERS
+    
+    /**
+     * The name of the suggestion
+     * @var string
+     */
+    public $name;
     /**
      * How the suggestion is described on screen
      * @var string 
@@ -63,13 +76,42 @@ class Suggestion
     }
 }
 
+function suggestion_dbrecord_to_object($record)
+{
+    $var = new Suggestion($record['name'], $record['description']);
+    //$var->name = $record['name'];
+    return $var;
+}
+
+function suggestion_db_getSuggestion($suggestionID)
+{
+    global $db;
+    
+    $query = "
+        SELECT *
+        FROM Suggestions
+        WHERE id = :suggestion_id";
+    
+    try
+    {
+        $statement = $db->prepare($query);
+        $statement->bindValue(':suggestion_id', $suggestionID);
+        $statement->execute();
+        $result = $statement->fetch();
+        $statement->closeCursor();
+        return $result;
+    } catch (PDOException $ex) {
+        echo $ex->message;
+        exit;
+    }
+}
 
 function suggestion_db_getSuggestions()
 {
     global $db;
     
     $query = 
-            "SELECT name
+            "SELECT *
             FROM Suggestions";
     
     try {

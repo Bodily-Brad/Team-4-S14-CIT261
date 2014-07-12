@@ -27,6 +27,7 @@ and open the template in the editor.
     {
         case 'start':
             $suggestions = suggestion_db_getSuggestions();
+            
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_survey.php');
             break;
         case 'view_results':
