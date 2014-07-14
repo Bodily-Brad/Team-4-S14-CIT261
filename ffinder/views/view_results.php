@@ -2,14 +2,14 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/style/ffstyle.css"/>        
-        <title></title>
+        <title>Food Finder Results</title>
         <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
         <script src="/models/mapAPI.js"></script>
 
     </head>
     <body>
-        <span id="contentwrapper">        
-            <img src='/media/images/brand_glass.png'>
+        <div id="contentwrapper">        
+            <img src='/media/images/brand_glass.png' alt='magnifying glass logo'>  
             <h1>FoodFinder</h1>
             <p id="foodkind"><?php echo $results?></p>
             <div id="map-canvas"></div>
@@ -18,7 +18,7 @@
               <ul id="places"></ul>
               <div id="more" class="button">More results</div>
             </div>         
-        </span>
+        </div>
         <form method="post">
             <input type="hidden" name="action" value="start"/>
             <br>

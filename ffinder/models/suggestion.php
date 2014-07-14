@@ -83,19 +83,19 @@ function suggestion_dbrecord_to_object($record)
     return $var;
 }
 
-function suggestion_db_getSuggestion($suggestionID)
+function suggestion_db_getSuggestion($name)
 {
     global $db;
     
     $query = "
         SELECT *
         FROM Suggestions
-        WHERE id = :suggestion_id";
+        WHERE name = :suggestion_name";
     
     try
     {
         $statement = $db->prepare($query);
-        $statement->bindValue(':suggestion_id', $suggestionID);
+        $statement->bindValue(':suggestion_name', $name);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();

@@ -8,6 +8,8 @@ and open the template in the editor.
     // get db
     require_once($_SERVER['DOCUMENT_ROOT'] . '/models/dbconn.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/models/suggestion.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/models/tag.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/models/tagAssignment.php');
 
     // Get the action to perform
     if (isset($_POST['action']))
@@ -27,6 +29,7 @@ and open the template in the editor.
     {
         case 'start':
             $suggestions = suggestion_db_getSuggestions();
+            $tags = tag_db_getTags();
             
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_survey.php');
             break;

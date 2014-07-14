@@ -1,205 +1,271 @@
 html {
-     background-color: #333333;
+    background-color: #333333;
 }
 body {
-     width: 500px;
-     margin: 10px auto;
-     height: auto;
-     padding: 10px;
-     padding-bottom: 50px;
-     border-radius: 5px;
-     background-color: #292929;
-     text-align: center;
-        -webkit-animation: fadein 3s; /* Safari and Chrome */
-       -moz-animation: fadein 3s; /* Firefox */
-        -ms-animation: fadein 3s; /* Internet Explorer */
-         -o-animation: fadein 3s; /* Opera */
-            animation: fadein 3s;
+    width: 500px;
+    margin: 10px auto;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background-color: #292929;
+    text-align: center;
+     -webkit-animation: fadein 5s; /* Safari and Chrome */
+      -moz-animation: fadein 5s; /* Firefox */
+       -ms-animation: fadein 5s; /* Internet Explorer */
+        -o-animation: fadein 5s; /* Opera */
+           animation: fadein 5s;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+   from { opacity: 0; }
+   to   { opacity: 1; }
 }
 
 /* Firefox */
 @-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+   from { opacity: 0; }
+   to   { opacity: 1; }
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+   from { opacity: 0; }
+   to   { opacity: 1; }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+   from { opacity: 0; }
+   to   { opacity: 1; }
 }
 
 /* Opera */
 @-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+   from { opacity: 0; }
+   to   { opacity: 1; }
 }
 
 /* H1, primarly for use with food suggestion result */
 h1 {
-    color: #39b54a;
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+   color: #39b54a;
+   font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
 }
+
+/* PREFERENCE ICONS */
 .icon {
-     width: 75px;
-     height: 75px;
-     -webkit-transition: background-color 1s, -webkit-transform 1.2s; /* For Safari 3.1 to 6.0 */
-     transition: background-color 1s, transform 1.2s;
-     background-color: #0071bc;
-     display: inline-table;
-     border-radius: 5px;
-     margin: 5px;
+    width: 75px;
+    height: 75px;
+    -webkit-transition: background-color 1s, -webkit-transform 1.2s; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s, transform 1.2s;
+    background-color: #0071bc;
+    display: inline-table;
+    border-radius: 5px;
+    margin: 5px;
 }
 .icon:hover{
-    background-color: #77c5ff;
-    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
-    transform: rotate(360deg);
-    cursor: pointer;
-     
-}
-#contentwrapper {
-     width: 500px;
-     margin: auto;
-}
-#logo {
-     width: 270px;
-     margin: 0 auto;
-     -webkit-transition: -webkit-transform 0.3s;
-     transition: transform 0.3s;
-     -webkit-animation: fadein 4s; /* Safari and Chrome */
-     -moz-animation: fadein 4s; /* Firefox */
-     -ms-animation: fadein 4s; /* Internet Explorer */
-     -o-animation: fadein 4s; /* Opera */
-     animation: fadein 4s;
+   background-color: #77c5ff;
+   -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+   transform: rotate(360deg);
+   cursor: pointer;
     
+}
+.icon-on {
+    width: 75px;
+    height: 75px;
+    -webkit-transition: background-color 1s, -webkit-transform 1.2s; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s, transform 1.2s;
+    background-color: #77c5ff;
+    background-color: #00FF00;
+    display: inline-table;
+    border-radius: 5px;
+    margin: 5px;
+}
+.icon-on:hover{
+   background-color: #0071bc;
+   -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+   transform: rotate(360deg);
+   cursor: pointer;
+    
+}
+.icon-off {
+    width: 75px;
+    height: 75px;
+    -webkit-transition: background-color 1s, -webkit-transform 1.2s; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s, transform 1.2s;
+    background-color: #0071bc;
+    background-color: #ff0000;
+    display: inline-table;
+    border-radius: 5px;
+    margin: 5px;
+}
+.icon-off:hover{
+   background-color: #77c5ff;
+   -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+   transform: rotate(360deg);
+   cursor: pointer;
+    
+}
+
+#logo {
+    width: 270px;
+    margin: 0 auto;  
 }
 #logo:hover {
+   
+}
+/* Navigation Buttons */
+#button {
+    display: inline-block;
+    width: 240px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Tahoma, Arial;
+    background-color: #39b54a;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px;
+    margin: 5px;
+    -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s linear;
+    cursor: pointer;
+}
+#button:hover {
+    background-color: #7bf98f;
+     
+}
+#tryAgain {
+    display: inline-table;
+    width: auto;
+    color: white;
+    text-decoration: none;
+    font-family: Tahoma, Arial;
+    background-color: #333;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s linear;
+    cursor: pointer;
+}
+#tryAgain:hover {
+    background-color: #0071bc;
+     
+}
+
+/* WRAPPERS */
+
+#wrapper-home {
     
 }
-#button a:link, #button a:visited {
-     display: inline-table;
-     width: 240px;
-     color: white;
-     text-decoration: none;
-     font-size: 18px;
-     font-family: Tahoma, Arial;
-     background-color: #39b54a;
-     border-radius: 5px;
-     text-align: center;
-     padding: 8px;
-     margin: 5px;
-     -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
-     transition: background-color 1s linear;
+#wrapper-results {
+   
 }
-#button a:hover {
-     background-color: #7bf98f;
-      
+#contentwrapper {
+    width: 500px;
+    margin: auto;
 }
 
 /* MAP STYLES */
 
 #map-canvas {
-    display: block;
-    height: 400px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 0px;
-    border-radius: 5px;
-    border: solid 2.5px #333;
+   display: block;
+   height: 400px;
+   width: 90%;
+   margin: 0 auto;
+   padding: 0px;
+   border-radius: 5px;
+   border: solid 2.5px #333;
 }
 /* RESULTS TAB ON MAP PAGE*/
 
- #results {
-        display: block;
-        font-family: Tahoma, Arial, Helvetica, sans-serif;
-        color: white;
-        right: 5px;
-        width: 90%;
-        margin: 0 auto;
-        padding: 5px;
-        background-color: transparent;
-      }
-      h2 {
-        font-size: 22px;
-        margin: 0 0 5px 0;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-      }
-      li {
-        background-color: transparent;
-        padding: 10px;
-      }
-      li:nth-child(odd) {
-        background-color: #333333;
-      }
-      #more {
-     display: inline-table;
-     width: 240px;
-     color: white;
-     text-decoration: none;
-     font-size: 18px;
-     font-family: Tahoma, Arial;
-     background-color: #39b54a;
-     border-radius: 5px;
-     text-align: center;
-     padding: 8px;
-     margin: 5px;
-      }
-    #more:hover {
-    background-color: #6ae87e
-    }
+#results {
+       display: block;
+       font-family: Tahoma, Arial, Helvetica, sans-serif;
+       color: white;
+       right: 5px;
+       width: 90%;
+       margin: 0 auto;
+       padding: 5px;
+       background-color: transparent;
+     }
+     h2 {
+       font-size: 22px;
+       margin: 0 0 5px 0;
+     }
+     ul {
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       width: 100%;
+     }
+     li {
+       background-color: transparent;
+       padding: 10px;
+     }
+     li:nth-child(odd) {
+       background-color: #333333;
+     }
+     #more {
+    display: inline-table;
+    width: 240px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Tahoma, Arial;
+    background-color: #39b54a;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+    -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s linear;
+     }
+   #more:hover {
+   background-color: #6ae87e
+   }
 
 /* Smartphones (portrait and landscape) ----------- */
-  
+ 
 @media screen and (max-width: 480px) {
-    
- body {
-     width: auto;
-     margin: auto;
    
-     padding: 2%;
-     border-radius: 0;
-     background-color: #292929;
-     text-align: center;
+body {
+    width: auto;
+    margin: auto;
+  
+    padding: 2%;
+    border-radius: 0;
+    background-color: #292929;
+    text-align: center;
 }
-  #contentwrapper {
-     width: auto;
-     margin: auto;
+ #contentwrapper {
+    width: auto;
+    margin: auto;
 }  
 #button a:link, #button a:visited {
+   width: 60%;
+   margin: 0;
+}
+   .icon {
+    width: 20%;
+    height: 70px;
+    background-color: #0071bc;
+    display: inline-table;
+    border-radius: 5px;
+    margin: 3px;
+}
+   
+   #logo {
     width: 60%;
-    margin: 0;
+    margin: 0 auto;
+   
 }
-    .icon {
-     width: 20%;
-     height: 70px;
-     background-color: #0071bc;
-     display: inline-table;
-     border-radius: 5px;
-     margin: 3px;
-}
-    
-    #logo {
-     width: 60%;
-     margin: 0 auto;
-    
-}
-    
+   
 
 }
 
