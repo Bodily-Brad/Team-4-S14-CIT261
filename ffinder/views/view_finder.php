@@ -21,22 +21,22 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
             </div>
         </div>
         
-<!--GOOGLE MAP & APP RESULTS-->
-   <div id="wrapper-results" style="display: none;">
-        <p>Based on your preferences we recommend you have . . .</p>
-        <h1 id="foodkind">burgers</h1>
-        Not quite right? <div id="tryAgain">Try Again.</div>
-   <div id="map-canvas"></div>
-   <div id="results">
-     <h2>Places to Get It:</h2>
-     <ul id="places"></ul>
-     <div id="more" class="button">More results</div>
-     </div>
- </div>
+        <!--GOOGLE MAP & APP RESULTS-->
+        <div id="wrapper-results" style="display: none;">
+            <p>Based on your preferences we recommend you have . . .</p>
+            <h1 id="foodkind">burgers</h1>
+            Not quite right? <div id="tryAgain">Try Again.</div>
+            <div id="map-canvas"></div>
+            <div id="results">
+            <h2>Places to Get It:</h2>
+            <ul id="places"></ul>
+            <div id="more" class="button">More results</div>
+            </div>
+        </div>
         <!--END of GOOGLE MAP & APP RESULTS-->
+        
         <!--JAVA SCRIPT WORKERS CODE-->
         <p id="result"></p>        
-        
         
         <script>
             var positives = new Array();
