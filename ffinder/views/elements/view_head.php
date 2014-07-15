@@ -4,5 +4,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/models/mapAPI.js"></script>
+    <script src="/script/foodfinder.js"></script>
     <title>Food Finder</title>
 </head>

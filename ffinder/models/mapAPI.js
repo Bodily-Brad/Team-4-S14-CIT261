@@ -90,8 +90,6 @@ JQUERY CODE HERE
 $(document).ready(function () {
     // this function transitions to the results and map screen when button is clicked
     $("#button").click(function () {
-        var foodkind = "";
-        foodkind = getFoodkind();
         $("#wrapper-home").hide();
         $("#wrapper-results").fadeIn(3000);
 //        document.getElementById('foodkind').innerHTML=foodkind;

@@ -27,6 +27,7 @@ and open the template in the editor.
     
     switch ($action)
     {
+        default:
         case 'start':
             //$suggestions = suggestion_db_getSuggestions();
             $suggestions = suggestion_db_getRepresentatives();
@@ -34,6 +35,8 @@ and open the template in the editor.
             
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_finder.php');
             break;
+        // This really shouldn't be used anymore... but just in case, I'm
+        // leaving it here for now.
         case 'view_results':
             $results = 'Chicken Alfredo';
             $pick = mt_rand(0, 2);
