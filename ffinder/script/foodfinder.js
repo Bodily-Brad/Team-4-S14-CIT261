@@ -1,5 +1,7 @@
-var positives = new Array();
-var negatives = new Array();
+var positives = new Array();        // Global array of 'positive' food codes;
+                                    // foods the user prefers
+var negatives = new Array();        // Global array of 'negative' food codes;
+                                    // foods the user rejects
 
 /*
  * buildNegativeArray
@@ -69,6 +71,8 @@ function getSuggestion()
             {
                 if (xhr.status === 200)
                 {
+                    hideIcons();
+                    showMap();
                     ShowFoodSearch(xhr.responseText);
                 }
                 else
@@ -79,6 +83,59 @@ function getSuggestion()
     }
 
     xhr.send(null);                    
+}
+
+/*
+ * hideIcons
+ * Hides the icons div
+ * @returns none
+ */
+function hideIcons()
+{
+    $("#wrapper-home").hide();
+}
+
+/*
+ * hideMap
+ * Hides the map div
+ * @returns none
+ */
+function hideMap()
+{
+    $("#wrapper-results").hide();    
+}
+
+/*
+ * showIcons
+ * Shows the Icons div
+ * @returns none
+ */
+function showIcons()
+{
+    $("#wrapper-home").fadeIn(3000);    
+}
+
+/*
+ * showMap
+ * Shows the map div
+ * @returns none
+ */
+function showMap()
+{
+    $("#wrapper-results").fadeIn(3000);    
+}
+
+/*
+ * tryAgain
+ * Hides the results, shows the icons, and resets the map divs
+ * @returns none
+ */
+function tryAgain()
+{
+    hideMap();
+    showIcons();
+    document.getElementById('places').innerHTML=' ';
+    document.getElementById('map-canvas').innerHTML=' ';    
 }
 
 /*

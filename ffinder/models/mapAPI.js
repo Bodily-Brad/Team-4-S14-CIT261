@@ -88,21 +88,7 @@ function googleMap(foodkind){
 JQUERY CODE HERE
 ************************/
 $(document).ready(function () {
-    // this function transitions to the results and map screen when button is clicked
-    $("#button").click(function () {
-        $("#wrapper-home").hide();
-        $("#wrapper-results").fadeIn(3000);
-//        document.getElementById('foodkind').innerHTML=foodkind;
-//        googleMap(foodkind);
-     });
-     
-    //resets Map and Results for the user to 'try again' - returns to start
-    $("#tryAgain").click(function () {
-        $("#wrapper-results").hide();
-        $("#wrapper-home").fadeIn(3000);
-        document.getElementById('places').innerHTML=' ';
-        document.getElementById('map-canvas').innerHTML=' ';
-    });
+    // moved button listeners to foodfinder.js as distinct functions
 
 /***********************
 JAVASCRIPT WORKERS CODE
