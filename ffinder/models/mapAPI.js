@@ -1,32 +1,36 @@
 /***********************
 GOOGE PLACES API CODE
 ************************/
-        function googleMap(foodkind){
-        var map, placesList;
-        // detecting user location
-        navigator.geolocation.getCurrentPosition(initialize);
-        function initialize(position) {
-            var la = position.coords.latitude;
-            var lo = position.coords.longitude;
-            var slc = new google.maps.LatLng(la, lo);
-            map = new google.maps.Map(document.getElementById('map-canvas'), {
-                center: slc,
-                zoom: 8
-            });
-            // here our food suggestion should replace the value of KEYWORD in this object
-            var request = {
-                location: slc,
-                radius: 1500,
-                types: ['restaurant'],
-                keyword: 'pizza'
-            };
-            request.keyword = foodkind;
+function googleMap(foodkind){
+    var map, placesList;
 
-            placesList = document.getElementById('places');
+    // detecting user location
+    navigator.geolocation.getCurrentPosition(initialize);
 
-            var service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
-        }
+    function initialize(position) {
+        var la = position.coords.latitude;
+        var lo = position.coords.longitude;
+        var slc = new google.maps.LatLng(la, lo);
+        map = new google.maps.Map(document.getElementById('map-canvas'), {
+            center: slc,
+            zoom: 8
+        });
+
+        // here our food suggestion should replace the value of KEYWORD in this object
+        var request = {
+            location: slc,
+            radius: 1500,
+            types: ['restaurant'],
+            keyword: 'pizza'
+        };
+        
+        request.keyword = foodkind;
+        
+        placesList = document.getElementById('places');
+        
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+    }
 
         function callback(results, status, pagination) {
             if (status != google.maps.places.PlacesServiceStatus.OK) {
