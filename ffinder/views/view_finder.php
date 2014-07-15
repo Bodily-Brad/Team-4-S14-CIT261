@@ -9,13 +9,18 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
             <div id="contentwrapper">
                 <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
                 <!-- Div for Icons-->
-                <div>
+                <div class="iconGrid">
                 <?php
                     showIcons($suggestions);
                 ?>                
                 </div>
+                <div class="iconGrid">
+                <?php
+                    showListItemIcons($suggestions);
+                ?>
+                </div>                
                 <!-- Div for Go Button -->
-                <div>
+                <div style='clear:both'>
                     <label id="button" onclick="getSuggestion()">Go</label>
                 </div>
             </div>
@@ -56,7 +61,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
     {
         $name = $suggestion['name'];
         echo "<div class='icon' id='$name' onclick=\"toggleIcon(this, '$name')\">";
-        echo $suggestion['description'];
+        echo "<p>" . $suggestion['description'] . "</p>";
         echo "</div>";
     }
     
@@ -66,5 +71,23 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
         {
             showIcon($suggestion);
         }        
+    }
+    
+    function showListItemIcon($suggestion)
+    {
+        echo "<li class='neutral' id='$name' onclick=\"toggleListIcon(this, '$name')\">";
+        echo $suggestion['description'];
+        echo "</li>";
+    }
+    
+    function showListItemIcons($suggestions)
+    {
+        echo "<h1>Unordered List Version Test</h1>";
+        echo "<ul>";
+        foreach ($suggestions as $suggestion)
+        {
+            showListItemIcon($suggestion);
+        }
+        echo "</ul><br>";
     }
 ?>

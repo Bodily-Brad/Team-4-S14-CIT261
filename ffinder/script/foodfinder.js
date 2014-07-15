@@ -187,3 +187,48 @@ function toggleIcon(clicker, name)
             break;
     }
 }
+
+
+function toggleListIcon(clicker, name)
+{
+    var status = clicker.getAttribute("status");
+    if (status === null)
+        status = "normal";                  
+
+    // Set new Status based on current status
+    switch (status)
+    {
+        case "on":
+            status = "normal";
+            break;
+        case "off":
+            status = "normal";
+            break;
+        default:
+            status = "on";
+            break;                        
+    }
+
+    // Set new class/attribute based on (new) current status
+    switch (status)
+    {
+        case "on":
+            clicker.className = "on";
+            positives[name] = true;
+            negatives[name] = false;            
+            clicker.setAttribute("status", "on");                       
+            break;
+        case "off":
+            clicker.className = "off";
+            positives[name] = false;
+            negatives[name] = true;              
+            clicker.setAttribute("status", "off");
+            break;
+        default:
+            clicker.className = "neutral";
+            positives[name] = false;
+            negatives[name] = false;            
+            clicker.setAttribute("status", "normal");
+            break;
+    }
+}
