@@ -87,7 +87,8 @@ h1 {
 }
 .icon-on p {
      display: table-cell;
-     vertical-align: middle; 
+     vertical-align: middle;    
+}
 .icon-on:hover{
     background-color: #333;
     cursor: pointer;
@@ -105,7 +106,8 @@ h1 {
 }
 .icon-off p {
      display: table-cell;
-     vertical-align: middle; 
+     vertical-align: middle;    
+}
 .icon-off:hover{
     background-color: #0071bc;
     cursor: pointer;
