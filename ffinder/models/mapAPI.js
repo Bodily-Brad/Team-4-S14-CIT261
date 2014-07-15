@@ -1,5 +1,7 @@
-        // GOOGE PLACES API CODE
-        function googleMap(){
+/***********************
+GOOGE PLACES API CODE
+************************/
+        function googleMap(foodkind){
         var map, placesList;
         // detecting user location
         navigator.geolocation.getCurrentPosition(initialize);
@@ -9,16 +11,16 @@
             var slc = new google.maps.LatLng(la, lo);
             map = new google.maps.Map(document.getElementById('map-canvas'), {
                 center: slc,
-                zoom: 5
+                zoom: 8
             });
             // here our food suggestion should replace the value of KEYWORD in this object
             var request = {
                 location: slc,
                 radius: 1500,
                 types: ['restaurant'],
-                keyword: 'burritos'
+                keyword: 'pizza'
             };
-            request.keyword = document.getElementById('foodkind').innerText;
+            request.keyword = foodkind;
 
             placesList = document.getElementById('places');
 
@@ -72,6 +74,50 @@
             map.fitBounds(bounds);
         }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
+        //google.maps.event.addDomListener(window, 'load', initialize);
         };
-        googleMap();
+/***********************
+JQUERY CODE HERE
+************************/
+              $(document).ready(function () {
+                  // this function transitions to the results and map screen when button is clicked
+                   $("#button").click(function () {
+                        $("#wrapper-home").hide();
+                        $("#wrapper-results").fadeIn(3000);
+                        googleMap();
+                   });
+                   //resets Map and Results for the user to 'try again' - returns to start
+                    $("#tryAgain").click(function () {
+                        $("#wrapper-results").hide();
+                        $("#wrapper-home").fadeIn(3000);
+                         document.getElementById('places').innerHTML=' ';
+                         document.getElementById('map-canvas').innerHTML=' ';
+                   });
+
+/***********************
+JAVASCRIPT WORKERS CODE
+************************/
+                    
+                    var clock;
+
+              function clockWorker() {
+                   if (typeof (Worker) !== "undefined") {
+                        if (typeof (clock) == "undefined") {
+                             clock = new Worker("worker.js");
+                        }
+                        clock.onmessage = function (event) {
+                             document.getElementById("result").innerHTML = event.data;
+                        };
+                   } else {
+                        alert("Your browser doesn't support web workers. Try using the latest version of Google Chrome.");
+                   }
+              }
+
+              function stopWorker() {
+                   w.terminate();
+              }
+              clockWorker();
+
+
+
+              });

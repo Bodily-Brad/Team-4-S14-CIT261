@@ -6,8 +6,7 @@
     </head>
     <body>
         <div id="contentwrapper">
-            <img src='/media/images/brand_glass.png' alt='magnifying glass logo'>        
-            <h1>FoodFinder</h1>
+            <a href="index.html"><img src="logo.png" id="logo" alt="FoodFinder"></a>
             <form method="post">
                 <label id="button" onclick="getSuggestion()">Go</label>
                 <input type="hidden" name="action" value="view_results"/>
