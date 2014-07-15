@@ -32,98 +32,101 @@ function googleMap(foodkind){
         service.nearbySearch(request, callback);
     }
 
-        function callback(results, status, pagination) {
-            if (status != google.maps.places.PlacesServiceStatus.OK) {
-                return;
-            } else {
-                createMarkers(results);
+    function callback(results, status, pagination) {
+        if (status != google.maps.places.PlacesServiceStatus.OK) {
+            return;
+        } else {
+            createMarkers(results);
 
-                if (pagination.hasNextPage) {
-                    var moreButton = document.getElementById('more');
+            if (pagination.hasNextPage) {
+                var moreButton = document.getElementById('more');
 
-                    moreButton.disabled = false;
+                moreButton.disabled = false;
 
-                    google.maps.event.addDomListenerOnce(moreButton, 'click',
-                  function () {
-                      moreButton.disabled = true;
-                      pagination.nextPage();
-                  });
-                }
+                google.maps.event.addDomListenerOnce(
+                    moreButton,
+                    'click',
+                    function () {
+                        moreButton.disabled = true;
+                        pagination.nextPage();
+                    }
+                );
             }
         }
+    }
 
-        function createMarkers(places) {
-            var bounds = new google.maps.LatLngBounds();
+    function createMarkers(places) {
+        var bounds = new google.maps.LatLngBounds();
 
-            for (var i = 0, place; place = places[i]; i++) {
-                var image = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
+        for (var i = 0, place; place = places[i]; i++) {
+            var image = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
 
-                var marker = new google.maps.Marker({
-                    map: map,
-                    icon: image,
-                    title: place.name,
-                    position: place.geometry.location
-                });
+            var marker = new google.maps.Marker({
+                map: map,
+                icon: image,
+                title: place.name,
+                position: place.geometry.location
+            });
 
-                placesList.innerHTML += '<li>' + place.name + '</li>';
+            placesList.innerHTML += '<li>' + place.name + '</li>';
 
-                bounds.extend(place.geometry.location);
-            }
-            map.fitBounds(bounds);
+            bounds.extend(place.geometry.location);
         }
+        map.fitBounds(bounds);
+    }
 
-        //google.maps.event.addDomListener(window, 'load', initialize);
-        };
+    //google.maps.event.addDomListener(window, 'load', initialize);
+};
+
 /***********************
 JQUERY CODE HERE
 ************************/
-              $(document).ready(function () {
-                  // this function transitions to the results and map screen when button is clicked
-                   $("#button").click(function () {
-                       var foodkind = "pizza";
-                        $("#wrapper-home").hide();
-                        $("#wrapper-results").fadeIn(3000);
-                        document.getElementById('foodkind').innerHTML=foodkind;
-                        googleMap(foodkind);
-                   });
-                   //resets Map and Results for the user to 'try again' - returns to start
-                    $("#tryAgain").click(function () {
-                        $("#wrapper-results").hide();
-                        $("#wrapper-home").fadeIn(3000);
-                         document.getElementById('places').innerHTML=' ';
-                         document.getElementById('map-canvas').innerHTML=' ';
-                   });
+$(document).ready(function () {
+    // this function transitions to the results and map screen when button is clicked
+    $("#button").click(function () {
+        var foodkind = "pizza";
+        $("#wrapper-home").hide();
+        $("#wrapper-results").fadeIn(3000);
+        document.getElementById('foodkind').innerHTML=foodkind;
+        googleMap(foodkind);
+     });
+     
+    //resets Map and Results for the user to 'try again' - returns to start
+    $("#tryAgain").click(function () {
+        $("#wrapper-results").hide();
+        $("#wrapper-home").fadeIn(3000);
+        document.getElementById('places').innerHTML=' ';
+        document.getElementById('map-canvas').innerHTML=' ';
+    });
 
 /***********************
 JAVASCRIPT WORKERS CODE
 ************************/
                     
-                    var clock;
+    var clock;
 
-              function clockWorker() {
-                   if (typeof (Worker) !== "undefined") {
-                        if (typeof (clock) == "undefined") {
-                             clock = new Worker("worker.js");
-                        }
-                        clock.onmessage = function (event) {
-                             document.getElementById("result").innerHTML = event.data;
-                        };
-                   } else {
-                        alert("Your browser doesn't support web workers. Try using the latest version of Google Chrome.");
-                   }
+    function clockWorker() {
+         if (typeof (Worker) !== "undefined") {
+              if (typeof (clock) == "undefined") {
+                   clock = new Worker("worker.js");
               }
+              clock.onmessage = function (event) {
+                   document.getElementById("result").innerHTML = event.data;
+              };
+         } else {
+              alert("Your browser doesn't support web workers. Try using the latest version of Google Chrome.");
+         }
+    }
 
-              function stopWorker() {
-                   w.terminate();
-              }
-              clockWorker();
+    function stopWorker() {
+         w.terminate();
+    }
 
-
-
-              });
+    clockWorker();
+});
