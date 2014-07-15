@@ -85,7 +85,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
                             {
                                 if (xhr.status === 200)
                                 {
-                                    //alert("message: " + xhr.responseText);
+                                    //return xhr.responseText;
+                                    var responseText = xhr.responseText;
+                                    document.getElementById('foodkind').innerHTML=responseText;
+                                    googleMap(responseText);                                    
+                                    //alert("message: " + responseText);
                                     // Add Google Map Code Here
                                     // xhr.responseText = returned Food Type
                                 }
@@ -97,6 +101,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
                 }
 
                 xhr.send(null);                    
+            }
+
+            function getFoodkind()
+            {
+                return "pizza";
             }
 
             function toggleIcon(clicker, name)

@@ -47,6 +47,19 @@
 
     // Pizza, for now
     $results = "Pizza";
+    $pick = mt_rand(0, 2);
+    switch ($pick)
+    {
+        case 0:
+            $results = 'Chinese Food';
+            break;
+        case 1:
+            $results = 'Sushi';
+            break;
+        case 2:
+            $results = 'Pizza';
+            break;
+    }    
     
     echo $results;
     
