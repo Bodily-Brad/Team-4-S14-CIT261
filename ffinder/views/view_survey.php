@@ -9,19 +9,51 @@
             <img src='/media/images/brand_glass.png' alt='magnifying glass logo'>        
             <h1>FoodFinder</h1>
             <form method="post">
-                <label class="icon" onclick="getSuggestion('gyros')">Pizza</label><input type="checkbox">
-                <label class="icon" onclick="toggleIcon(this)">Pop</label><input type="checkbox">
-                <label class="icon" onclick="toggleIcon(this)">Sugar</label><input type="checkbox">
-                <label class="icon" onclick="toggleIcon(this)">Soda</label><input type="checkbox">
+                <label class="icon" onclick="getSuggestion()">Check</label>
                 <input type="hidden" name="action" value="view_results"/>
                 <br>
                 <input type="submit" value="Go" class='btn'>
             </form>
             <script>
-                function getSuggestion(name)
+                var positives = new Array();
+                var negatives = new Array();
+                
+                function buildPositiveArray()
                 {
+                    var posArr = new Array();
+                    for (var index in positives )
+                    {
+                        if (positives[index])
+                            posArr.push(index);
+                    }
+                    
+                    return posArr;
+                }
+                
+                function buildNegativeArray()
+                {
+                    var negArr = new Array();
+                    for (var index in negatives)
+                    {
+                        if (negatives[index])
+                            negArr.push(index);
+                    }
+                    
+                    return negArr;
+                }
+                
+                function getSuggestion()
+                {
+                    var posArr = JSON.stringify(buildPositiveArray());
+                    var negArr = JSON.stringify(buildNegativeArray());
+                    
+                    var url = './ajax/get_suggestion.php';
+                    var params =
+                            "positives=" + posArr + "&" +
+                            "negatives=" + negArr;
+                    
                     var xhr = new XMLHttpRequest();
-                    xhr.open('get', './ajax/get_tags_by_suggestion.php?suggestionName=' + name);
+                    xhr.open('get', url + "?" + params);
                     
                     xhr.onreadystatechange =
                             function() {
@@ -29,7 +61,7 @@
                                 {
                                     if (xhr.status === 200)
                                     {
-                                        //alert("message: " + xhr.responseText);
+                                        alert("message: " + xhr.responseText);
                                     }
                                     else
                                     {
@@ -40,7 +72,6 @@
                     
                     xhr.send(null);                    
                 }
-                
                 
                 function getSomeAjax()
                 {
@@ -76,12 +107,18 @@
                     {
                         case "on":
                             status = "off";
+                            positives[name] = false;
+                            negatives[name] = true;
                             break;
                         case "off":
                             status = "normal";
+                            positives[name] = false; // redundant
+                            negatives[name] = false;
                             break;
                         default:
                             status = "on";
+                            positives[name] = true;
+                            negatives[name] = false;
                             break;                        
                     }
                     
@@ -101,9 +138,6 @@
                             clicker.setAttribute("status", "normal");
                             break;
                     }
-                    
-                    // Get some ajax
-                    getSuggestion(name);
                 }
             </script>
             <?php

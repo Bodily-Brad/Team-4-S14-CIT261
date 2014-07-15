@@ -101,7 +101,7 @@ function suggestion_db_getSuggestion($name)
         $statement->closeCursor();
         return $result;
     } catch (PDOException $ex) {
-        echo $ex->message;
+        echo $ex->getMessage();
         exit;
     }
 }
@@ -120,11 +120,66 @@ function suggestion_db_getSuggestions()
         $results = $statement->fetchAll();
         $statement->closeCursor();
     } catch (PDOException $ex) {
-        echo $ex->message;
+        echo $ex->getMessage();
         exit;
     }
     
     if (!empty($results))
         return $results;
+    return false;
+}
+
+function suggestion_db_getRepresentatives()
+{
+    global $db;
+    
+    // Get Rep Names
+    $query = 
+            "SELECT *
+            FROM Representatives";
+    
+    try {
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        $statement->closeCursor();
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
+        exit;
+    }
+    
+    if (empty($results))
+        return false;
+    
+    // Get Foods
+    
+    $query =
+            "SELECT *
+            FROM Suggestions
+            WHERE ";
+    
+    $count = 0;
+    foreach ($results as $result)
+    {
+        $query .= "name = '" . $result['name'] . "'";
+        if ($count < count($results) - 1)
+            $query .= " OR ";
+        
+        $count++;
+    }
+    
+    try {
+        $nextStatement = $db->prepare($query);
+        $nextStatement->execute();
+        $representatives = $nextStatement->fetchAll();
+        $nextStatement->closeCursor();
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
+        exit;
+    }    
+    
+    if (!empty($representatives))
+        return $representatives;
+    
     return false;
 }
