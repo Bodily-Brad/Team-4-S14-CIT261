@@ -44,11 +44,9 @@
     $posArr = json_decode($positives);
     $negArr = json_decode($negatives);
    
-    echo "pos: ";
-    foreach ($posArr as $item)
-        echo $item . ", ";
+
+    // Pizza, for now
+    $results = "Pizza";
     
-    echo "neg: ";
-    foreach ($negArr as $item)
-        echo $item . ", ";
+    echo $results;
     

@@ -9,10 +9,10 @@
             <img src='/media/images/brand_glass.png' alt='magnifying glass logo'>        
             <h1>FoodFinder</h1>
             <form method="post">
-                <label class="icon" onclick="getSuggestion()">Check</label>
+                <label id="button" onclick="getSuggestion()">Go</label>
                 <input type="hidden" name="action" value="view_results"/>
                 <br>
-                <input type="submit" value="Go" class='btn'>
+                <input type="submit" value="Get Results" class='btn'>
             </form>
             <script>
                 var positives = new Array();
@@ -61,7 +61,9 @@
                                 {
                                     if (xhr.status === 200)
                                     {
-                                        alert("message: " + xhr.responseText);
+                                        //alert("message: " + xhr.responseText);
+                                        // Add Google Map Code Here
+                                        // xhr.responseText = returned Food Type
                                     }
                                     else
                                     {
