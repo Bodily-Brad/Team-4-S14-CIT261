@@ -6,7 +6,7 @@
     </head>
     <body>
         <div id="contentwrapper">
-            <a href="index.html"><img src="logo.png" id="logo" alt="FoodFinder"></a>
+            <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
             <form method="post">
                 <label id="button" onclick="getSuggestion()">Go</label>
                 <input type="hidden" name="action" value="view_results"/>
@@ -171,7 +171,6 @@
         foreach ($tags as $tag)
         {
             echo $tag['name'] . "<br>";
-            
         }          
     }
 ?>

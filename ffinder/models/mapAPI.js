@@ -82,9 +82,11 @@ JQUERY CODE HERE
               $(document).ready(function () {
                   // this function transitions to the results and map screen when button is clicked
                    $("#button").click(function () {
+                       var foodkind = "pizza";
                         $("#wrapper-home").hide();
                         $("#wrapper-results").fadeIn(3000);
-                        googleMap();
+                        document.getElementById('foodkind').innerHTML=foodkind;
+                        googleMap(foodkind);
                    });
                    //resets Map and Results for the user to 'try again' - returns to start
                     $("#tryAgain").click(function () {

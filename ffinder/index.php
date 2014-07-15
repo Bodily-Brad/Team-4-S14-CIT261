@@ -32,7 +32,7 @@ and open the template in the editor.
             $suggestions = suggestion_db_getRepresentatives();
             $tags = tag_db_getTags();
             
-            include($_SERVER['DOCUMENT_ROOT'] . '/views/view_survey.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/views/view_finder.php');
             break;
         case 'view_results':
             $results = 'Chicken Alfredo';
