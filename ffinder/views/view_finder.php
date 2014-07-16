@@ -13,12 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
                 <?php
                     showIcons($suggestions);
                 ?>                
-                </div>
-                <div class="iconGrid">
-                <?php
-                    showListItemIcons($suggestions);
-                ?>
-                </div>                
+                </div>              
                 <!-- Div for Go Button -->
                 <div style='clear:both'>
                     <label id="button" onclick="getSuggestion()">Go</label>
@@ -40,9 +35,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
         </div>
         <!--END of GOOGLE MAP & APP RESULTS-->
         
+        <p id="lastSuggestion"></p>
         <!--JAVA SCRIPT WORKERS CODE-->
-        <p id="result"></p>        
-        
+        <p id="result"></p>
         <script>
 
             

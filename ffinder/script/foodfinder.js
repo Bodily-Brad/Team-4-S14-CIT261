@@ -74,6 +74,7 @@ function getSuggestion()
                     hideIcons();
                     showMap();
                     ShowFoodSearch(xhr.responseText);
+                    localStorage.setItem("last suggestion", xhr.responseText);
                 }
                 else
                 {
@@ -112,7 +113,7 @@ function hideMap()
  */
 function showIcons()
 {
-    $("#wrapper-home").fadeIn(3000);    
+    $("#wrapper-home").fadeIn(2000);    
 }
 
 /*
@@ -122,7 +123,7 @@ function showIcons()
  */
 function showMap()
 {
-    $("#wrapper-results").fadeIn(3000);    
+    $("#wrapper-results").fadeIn(2000);    
 }
 
 /*
@@ -135,7 +136,8 @@ function tryAgain()
     hideMap();
     showIcons();
     document.getElementById('places').innerHTML=' ';
-    document.getElementById('map-canvas').innerHTML=' ';    
+    document.getElementById('map-canvas').innerHTML=' '; 
+    updateLastSuggestion();
 }
 
 /*
@@ -154,19 +156,13 @@ function toggleIcon(clicker, name)
     switch (status)
     {
         case "on":
-            status = "off";
-            positives[name] = false;
-            negatives[name] = true;
+            status = "normal";
             break;
         case "off":
             status = "normal";
-            positives[name] = false; // redundant
-            negatives[name] = false;
             break;
         default:
             status = "on";
-            positives[name] = true;
-            negatives[name] = false;
             break;                        
     }
 
@@ -175,14 +171,20 @@ function toggleIcon(clicker, name)
     {
         case "on":
             clicker.className = "icon-on";
+            positives[name] = true;
+            negatives[name] = false;            
             clicker.setAttribute("status", "on");                            
             break;
         case "off":
             clicker.className = "icon-off";
+            positives[name] = false;
+            negatives[name] = true;            
             clicker.setAttribute("status", "off");
             break;
         default:
             clicker.className = "icon";
+            positives[name] = false; // redundant
+            negatives[name] = false;            
             clicker.setAttribute("status", "normal");
             break;
     }
@@ -231,4 +233,14 @@ function toggleListIcon(clicker, name)
             clicker.setAttribute("status", "normal");
             break;
     }
+}
+
+function updateLastSuggestion()
+{
+    var lastSug = localStorage.getItem("last suggestion");
+    if (lastSug != "")
+    {
+        document.getElementById("lastSuggestion").innerHTML = 
+                "Last Suggestion: " + lastSug;
+    }    
 }

@@ -99,7 +99,7 @@ JAVASCRIPT WORKERS CODE
     function clockWorker() {
          if (typeof (Worker) !== "undefined") {
               if (typeof (clock) == "undefined") {
-                   clock = new Worker("worker.js");
+                   clock = new Worker("/script/worker.js");
               }
               clock.onmessage = function (event) {
                    document.getElementById("result").innerHTML = event.data;

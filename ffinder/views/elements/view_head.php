@@ -6,5 +6,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/models/mapAPI.js"></script>
     <script src="/script/foodfinder.js"></script>
+    <script src="/script/worker.js"></script>
     <title>Food Finder</title>
 </head>
