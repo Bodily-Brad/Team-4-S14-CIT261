@@ -106,6 +106,12 @@ function hideMap()
     $("#wrapper-results").hide();    
 }
 
+/*
+ * Shows the results of our search
+ * This function is called after the Ajax request is returned
+ * @param {type} foodtype
+ * @returns none
+ */
 function ShowFoodSearch(foodtype)
 {
     document.getElementById('foodkind').innerHTML=foodtype;
