@@ -5,8 +5,9 @@
         <title>Food Finder</title>
     </head>
     <body>
+        <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
         <div id="contentwrapper">
-            <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
+            
             <form method="post">
                 <label id="button" onclick="getSuggestion()">Go</label>
                 <input type="hidden" name="action" value="view_results"/>
