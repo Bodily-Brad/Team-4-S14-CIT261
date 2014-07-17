@@ -37,7 +37,7 @@
     }    
     
     
-    $suggestion = suggestion_db_getSuggestion($suggestionName);
+    $suggestion = get_suggestion_record($suggestionName);
 //    $return = json_encode($suggestion);
     
     //$suggestions = suggestion_db_getSuggestions();

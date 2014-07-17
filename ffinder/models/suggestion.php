@@ -79,7 +79,6 @@ class Suggestion
 function suggestion_dbrecord_to_object($record)
 {
     $var = new Suggestion($record['name'], $record['description']);
-    //$var->name = $record['name'];
     return $var;
 }
 
@@ -106,7 +105,7 @@ function get_suggestions_records()
     return false;
 }
 
-function suggestion_db_getSuggestion($name)
+function get_suggestion_record($name)
 {
     global $db;
     
@@ -129,6 +128,15 @@ function suggestion_db_getSuggestion($name)
     }
 }
 
+function get_suggestion($name)
+{
+    $record = get_suggestion_record($name);
+    if (empty($record))
+        return false;
+    
+    return suggestion_dbrecord_to_object($record);
+}
+
 function get_suggestions()
 {
     $records = get_suggestions_records();
@@ -143,7 +151,7 @@ function get_suggestions()
     return $objects;
 }
 
-function suggestion_db_getRepresentatives()
+function get_representatives_records()
 {
     global $db;
     
@@ -196,4 +204,18 @@ function suggestion_db_getRepresentatives()
         return $representatives;
     
     return false;
+}
+
+function get_representative_suggestions()
+{
+    $records = get_representatives_records();
+    $objects = array();
+    
+    foreach ($records as $record)
+    {
+        $object = suggestion_dbrecord_to_object($record);
+        $objects[] = $object;
+    }
+    
+    return $objects;
 }

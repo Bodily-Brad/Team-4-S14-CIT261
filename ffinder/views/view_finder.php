@@ -2,6 +2,9 @@
 <?php
 // Common Head
 include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
+
+// Requires
+// $suggestions:Suggestion[]
 ?>
     <body>
         <!-- START/PREFERENCE SCREEN -->
@@ -52,9 +55,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
 <?php
     function showIcon($suggestion)
     {
-        $name = $suggestion['name'];
+        //$name = $suggestion['name'];
+        $name = $suggestion->name;
+        $description = $suggestion->description;
+        
         echo "<div class='icon' id='$name' onclick=\"toggleIcon(this, '$name')\">";
-        echo "<p>" . $suggestion['description'] . "</p>";
+        //echo "<p>" . $suggestion['description'] . "</p>";
+        echo "<p>" . $description . "</p>";
         echo "</div>";
         echo "\n";
     }

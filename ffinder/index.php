@@ -30,7 +30,8 @@ and open the template in the editor.
         default:
         case 'start':
             //$suggestions = suggestion_db_getSuggestions();
-            $suggestions = suggestion_db_getRepresentatives();
+            $suggestions = get_representatives_records();
+            $suggestions = get_representative_suggestions();
             $tags = tag_db_getTags();
             
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_finder.php');

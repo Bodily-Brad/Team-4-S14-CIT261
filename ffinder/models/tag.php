@@ -19,6 +19,11 @@ function tag_dbrecord_to_object($record)
     return $var;
 }
 
+function get_tag($name)
+{
+    
+}
+
 function tag_db_getTag($name)
 {
     global $db;
