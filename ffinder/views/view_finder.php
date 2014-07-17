@@ -5,8 +5,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
 ?>
     <body>
         <!-- START/PREFERENCE SCREEN -->
+        <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>        
         <div id="wrapper-home">      
-            <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
             <div id="contentwrapper">
                 <!-- Div for Icons-->
                 <!-- <div class="iconGrid"> -->
@@ -14,11 +14,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
                     showIcons($suggestions);
                 ?>                
                 <!-- </div> -->
-                <!-- Div for Go Button -->
-                <div style='clear:both'>
-                    <label id="button" onclick="getSuggestion()">Go</label>
-                </div>
-            </div>
+            </div>    
+            <!-- Div for Go Button -->
+            <div id="button" onclick="getSuggestion()">Go</div>            
         </div>
         
         <!--GOOGLE MAP & APP RESULTS-->
@@ -58,6 +56,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
         echo "<div class='icon' id='$name' onclick=\"toggleIcon(this, '$name')\">";
         echo "<p>" . $suggestion['description'] . "</p>";
         echo "</div>";
+        echo "\n";
     }
     
     function showIcons($suggestions)

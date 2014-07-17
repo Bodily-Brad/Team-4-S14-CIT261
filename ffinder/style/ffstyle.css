@@ -2,14 +2,14 @@ html {
      background-color: #333333;
 }
 body {
-     width: 500px;
+     width: 65%;
      margin: 10px auto;
-     height: auto;
      padding: 10px;
      padding-bottom: 50px;
      border-radius: 5px;
      color: white;
      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+     font-size: 1em;
      background-color: #292929;
      text-align: center;
       -webkit-animation: fadein 5s; /* Safari and Chrome */
@@ -54,70 +54,55 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
 }
 
-/* PREFERENCE ICONS */
+/******************************* 
+    
+  PREFERENCE ICONS
+    
+*******************************/
+#contentwrapper {
+     width: 65%;
+     margin: 0 auto;
+     padding: 0;
+     text-align: center;
+     height: 100%;
+     overflow: auto;
+}
+#contentwrapper div {
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    overflow:hidden;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.7s; /* For Safari 3.1 to 6.0 */
+    transition: background-color 0.7s;
+    cursor: pointer;
+}
+#contentwrapper div:nth-child(4) {
+    clear: left;
+}
+#contentwrapper div p {
+    position:absolute;
+    vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle; 
+    height:80%; /* = 100% - 2*10% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 10% 5%;
+}
 
 .icon {
-     display: inline-table;
-     margin: 5px;
-     width: 75px;
-     width: 20%;
-     height: 75px;
-     background-color: #0071bc;
-     border-radius: 5px; 
-     -webkit-transition: background-color 0.7s; /* For Safari 3.1 to 6.0 */
-     transition: background-color 0.7s;
-       
-}
-.icon p {
-     display: table-cell;
-     vertical-align: middle;    
-}
-.icon:hover{
-    background-color: #39b54a;
-    cursor: pointer;
-     
+     background-color: #0071bc;   
 }
 .icon-on {
-     width: 75px;
-     width: 20%;
-     height: 75px;
-     -webkit-transition: background-color 0.7s; /* For Safari 3.1 to 6.0 */
-     transition: background-color 0.7s;
      background-color: #39b54a;
-     display: inline-table;
-     border-radius: 5px;
-     margin: 5px;
-}
-.icon-on p {
-     display: table-cell;
-     vertical-align: middle;    
-}
-.icon-on:hover{
-    background-color: #333;
-    cursor: pointer;
-     
-}
+}   
 .icon-off {
-     width: 75px;
-     width: 20%;
-     height: 75px;
-     -webkit-transition: background-color 0.7s; /* For Safari 3.1 to 6.0 */
-     transition: background-color 0.7s;
      background-color: #333;
-     display: inline-table;
-     border-radius: 5px;
-     margin: 5px;
-}
-.icon-off p {
-     display: table-cell;
-     vertical-align: middle;    
-}
-.icon-off:hover{
-    background-color: #0071bc;
-    cursor: pointer;
-     
 }
 
+/* LOGO */
 #logo {
      width: 270px;
      margin: 0 auto;  
@@ -128,7 +113,7 @@ h1 {
 /* Navigation Buttons */
 #button {
      display: inline-block;
-     width: 240px;
+     width: 59%;
      color: white;
      text-decoration: none;
      font-size: 18px;
@@ -136,8 +121,8 @@ h1 {
      background-color: #39b54a;
      border-radius: 5px;
      text-align: center;
-     padding: 8px;
-     margin: 5px;
+     padding: 2%;
+     margin: 2px auto;
      -webkit-transition: background-color 1s linear; /* For Safari 3.1 to 6.0 */
      transition: background-color 1s linear;
      cursor: pointer;
@@ -169,15 +154,13 @@ h1 {
 /* WRAPPERS */
 
 #wrapper-home {
-     
+   width: 100%;
+   height: auto;
 }
 #wrapper-results {
     
 }
-#contentwrapper {
-     width: 500px;
-     margin: 0 auto;
-}
+
 
 /* MAP STYLES */
 
@@ -192,36 +175,33 @@ h1 {
 }
 /* RESULTS TAB ON MAP PAGE*/
 
-#results {
-    display: block;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    color: white;
-    right: 5px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 5px;
-    background-color: transparent;
-  }
-  
-h2 {
-  font-size: 22px;
-  margin: 0 0 5px 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-#places li {
-  background-color: transparent;
-  padding: 10px;
-}
-
-#places li:nth-child(odd) {
-  background-color: #333333;
-}
+ #results {
+        display: block;
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+        color: white;
+        right: 5px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 5px;
+        background-color: transparent;
+      }
+      h2 {
+        font-size: 22px;
+        margin: 0 0 5px 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      li {
+        background-color: transparent;
+        padding: 10px;
+      }
+      li:nth-child(odd) {
+        background-color: #333333;
+      }
       #more {
      display: inline-table;
      width: 240px;
@@ -243,43 +223,73 @@ ul {
     }
 
 /* Smartphones (portrait and landscape) ----------- */
+
+/* PC or Mac */
+@media screen and (min-width: 768px) {
+    body {
+        width: 500px;
+    }
+
+    .icon:hover {
+        background-color: #39b54a;
+        cursor: pointer;
+    }
+
+    .icon-on:hover {
+        background-color: #333;
+        cursor: pointer;
+    }
+
+    .icon-off:hover {
+        background-color: #0071bc;
+        cursor: pointer;
+    }
+}
+/* TABLET */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    body {
+        width: 450px;
+    }
+
+    .icon:hover {
+        background-color: #39b54a;
+        cursor: pointer;
+    }
+
+    .icon-on:hover {
+        background-color: #333;
+        cursor: pointer;
+    }
+
+    .icon-off:hover {
+        background-color: #0071bc;
+        cursor: pointer;
+    }
+}
   
+
 @media screen and (max-width: 480px) {
     
  body {
      width: 100%;
      margin: 0 auto;
-   
+     font-size: 0.75em;
      padding: 2%;
      border-radius: 0;
      background-color: #292929;
      text-align: center;
-}
-  #contentwrapper {
-     width: auto;
-     margin: auto;
-}  
-#button a:link, #button a:visited {
-    width: 60%;
-    margin: 0;
-}
-    .icon {
-     width: 20%;
-     height: 70px;
-     background-color: #0071bc;
-     display: inline-table;
-     border-radius: 5px;
-     margin: 3px;
-}
-    
+} 
     #logo {
      width: 60%;
      margin: 0 auto;
-    
+}
+contentwrapper div:hover {
 }
     
 
 }
+
+
 
 
 /* iPads (landscape) ----------- */
@@ -296,43 +306,4 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
 /* Styles */
-}
-
-
-.neutral {
-    background-color: #333333;
-}
-
-.on {
-    background-color: #39b54a;
-    box-shadow: 0px 0px 20px #39b54a;
-}
-
-.off {
-    background-color: #ff0000;
-    box-shadow: 0px 0px 30px #ff0000;
-    color: #000000;
-}
-
-.iconGrid {
-    display: inline-block;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.iconGrid ul {
-    display:inline-block;
-    margin: 0;
-    padding: 0;
-}
-
-.iconGrid ul li {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    width: 20%;
-    min-width: 5em;
-    height: 4em;
-    margin: 0.2em;
-    border-radius: 0.333em;
 }
