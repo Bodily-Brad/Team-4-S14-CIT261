@@ -5,9 +5,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
 ?>
     <body>
         <!-- START/PREFERENCE SCREEN -->
-        <div id="wrapper-home">        
+        <div id="wrapper-home">      
+            <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
             <div id="contentwrapper">
-                <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
                 <!-- Div for Icons-->
                 <div class="iconGrid">
                 <?php
