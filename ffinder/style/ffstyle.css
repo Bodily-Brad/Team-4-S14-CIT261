@@ -19,6 +19,35 @@ body {
             animation: fadein 5s;
 }
 
+/* Container for all content*/
+#wrapper_all {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Header - Icon and Title */
+header {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* LOGO */
+#logo {
+     /* width: 270px; */
+     margin: 0 auto;  
+     max-width: 82px;
+}
+#logo:hover {
+    
+}
+
+/*Animations*/
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -102,14 +131,7 @@ h1 {
      background-color: #333;
 }
 
-/* LOGO */
-#logo {
-     width: 270px;
-     margin: 0 auto;  
-}
-#logo:hover {
-    
-}
+
 /* Navigation Buttons */
 #button {
      display: inline-block;
@@ -280,7 +302,7 @@ h1 {
      text-align: center;
 } 
     #logo {
-     width: 60%;
+     /* width: 60%; */
      margin: 0 auto;
 }
 contentwrapper div:hover {

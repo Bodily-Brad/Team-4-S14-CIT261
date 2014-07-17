@@ -7,8 +7,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
 // $suggestions:Suggestion[]  This is an array of objects to be used as icons
 ?>
     <body>
-        <!-- Logo -->
-        <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>        
+        <div id="wrapper_all">
+            <header>
+                <a href="/"><img src="/media/images/brand_glass.png" id="logo" alt="FoodFinder"></a>
+                FoodFinder
+            </header>
         <!-- START/PREFERENCE SCREEN -->
         <div id="wrapper-home">      
             <!-- Div for Icons-->
@@ -45,7 +48,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
                 document.getElementById('foodkind').innerHTML=foodtype;
                 googleMap(foodtype);                  
             }            
-        </script>    
+        </script>
+        </div>
     </body>
 </html>
 
