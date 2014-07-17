@@ -83,6 +83,29 @@ function suggestion_dbrecord_to_object($record)
     return $var;
 }
 
+function get_suggestions_records()
+{
+    global $db;
+    
+    $query = 
+            "SELECT *
+            FROM Suggestions";
+    
+    try {
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        $statement->closeCursor();
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
+        exit;
+    }
+    
+    if (!empty($results))
+        return $results;
+    return false;
+}
+
 function suggestion_db_getSuggestion($name)
 {
     global $db;
@@ -106,27 +129,18 @@ function suggestion_db_getSuggestion($name)
     }
 }
 
-function suggestion_db_getSuggestions()
+function get_suggestions()
 {
-    global $db;
+    $records = get_suggestions_records();
+    $objects = array();
     
-    $query = 
-            "SELECT *
-            FROM Suggestions";
-    
-    try {
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $results = $statement->fetchAll();
-        $statement->closeCursor();
-    } catch (PDOException $ex) {
-        echo $ex->getMessage();
-        exit;
+    foreach ($records as $record)
+    {
+        $object = suggestion_dbrecord_to_object($record);
+        $objects[] = $object;
     }
     
-    if (!empty($results))
-        return $results;
-    return false;
+    return $objects;
 }
 
 function suggestion_db_getRepresentatives()

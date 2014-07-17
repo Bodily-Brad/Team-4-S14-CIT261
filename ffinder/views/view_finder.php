@@ -9,11 +9,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
             <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>
             <div id="contentwrapper">
                 <!-- Div for Icons-->
-                <div class="iconGrid">
+                <!-- <div class="iconGrid"> -->
                 <?php
                     showIcons($suggestions);
                 ?>                
-                </div>              
+                <!-- </div> -->
                 <!-- Div for Go Button -->
                 <div style='clear:both'>
                     <label id="button" onclick="getSuggestion()">Go</label>

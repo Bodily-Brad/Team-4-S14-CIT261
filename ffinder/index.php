@@ -35,25 +35,6 @@ and open the template in the editor.
             
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_finder.php');
             break;
-        // This really shouldn't be used anymore... but just in case, I'm
-        // leaving it here for now.
-        case 'view_results':
-            $results = 'Chicken Alfredo';
-            $pick = mt_rand(0, 2);
-            switch ($pick)
-            {
-                case 0:
-                    $results = 'Chinese Food';
-                    break;
-                case 1:
-                    $results = 'Sushi';
-                    break;
-                case 2:
-                    $results = 'Pizza';
-                    break;
-            }
-            include($_SERVER['DOCUMENT_ROOT'] . '/views/view_results.php');
-            break;
     }
 
 ?>
