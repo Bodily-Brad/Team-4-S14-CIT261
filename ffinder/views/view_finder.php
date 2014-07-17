@@ -4,19 +4,18 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
 
 // Requires
-// $suggestions:Suggestion[]
+// $suggestions:Suggestion[]  This is an array of objects to be used as icons
 ?>
     <body>
-        <!-- START/PREFERENCE SCREEN -->
+        <!-- Logo -->
         <a href="/"><img src="/media/images/logo.png" id="logo" alt="FoodFinder"></a>        
+        <!-- START/PREFERENCE SCREEN -->
         <div id="wrapper-home">      
+            <!-- Div for Icons-->
             <div id="contentwrapper">
-                <!-- Div for Icons-->
-                <!-- <div class="iconGrid"> -->
                 <?php
                     showIcons($suggestions);
                 ?>                
-                <!-- </div> -->
             </div>    
             <!-- Div for Go Button -->
             <div id="button" onclick="getSuggestion()">Go</div>            
@@ -36,18 +35,16 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
         </div>
         <!--END of GOOGLE MAP & APP RESULTS-->
         
+        <!-- Last Suggestion -->
         <p id="lastSuggestion"></p>
         <!--JAVA SCRIPT WORKERS CODE-->
         <p id="result"></p>
         <script>
-
-            
-        function ShowFoodSearch(foodtype)
-        {
-            document.getElementById('foodkind').innerHTML=foodtype;
-            googleMap(foodtype);                  
-        }
-            
+            function ShowFoodSearch(foodtype)
+            {
+                document.getElementById('foodkind').innerHTML=foodtype;
+                googleMap(foodtype);                  
+            }            
         </script>    
     </body>
 </html>
@@ -74,16 +71,19 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
         }        
     }
     
+    // These functions are not currently used
+    // They build the icons as an unordered list
     function showListItemIcon($suggestion)
     {
+        $name = $suggestion->name;
+        $description = $suggestion->description;        
         echo "<li class='neutral' id='$name' onclick=\"toggleListIcon(this, '$name')\">";
-        echo $suggestion['description'];
+        echo $description;
         echo "</li>";
     }
     
     function showListItemIcons($suggestions)
     {
-        echo "<h1>Unordered List Version Test</h1>";
         echo "<ul>";
         foreach ($suggestions as $suggestion)
         {

@@ -217,5 +217,6 @@ function get_representative_suggestions()
         $objects[] = $object;
     }
     
+    shuffle($objects);
     return $objects;
 }
