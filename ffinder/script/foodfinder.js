@@ -106,6 +106,12 @@ function hideMap()
     $("#wrapper-results").hide();    
 }
 
+function ShowFoodSearch(foodtype)
+{
+    document.getElementById('foodkind').innerHTML=foodtype;
+    googleMap(foodtype);                  
+}
+
 /*
  * showIcons
  * Shows the Icons div

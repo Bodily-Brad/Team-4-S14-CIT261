@@ -9,46 +9,38 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/elements/view_head.php');
     <body>
         <div id="wrapper_all">
             <header>
-                <a href="/"><img src="/media/images/brand_glass.png" id="logo" alt="FoodFinder"></a>
+                <a href="/"><img src="/media/images/glass_hi.png" alt="FoodFinder"></a>
                 FoodFinder
             </header>
-        <!-- START/PREFERENCE SCREEN -->
-        <div id="wrapper-home">      
-            <!-- Div for Icons-->
-            <div id="contentwrapper">
-                <?php
-                    showIcons($suggestions);
-                ?>                
-            </div>    
-            <!-- Div for Go Button -->
-            <div id="button" onclick="getSuggestion()">Go</div>            
-        </div>
-        
-        <!--GOOGLE MAP & APP RESULTS-->
-        <div id="wrapper-results" style="display: none;">
-            <p>Based on your preferences we recommend you have . . .</p>
-            <h1 id="foodkind">burgers</h1>
-            Not quite right? <div id="tryAgain" onclick="tryAgain()">Try Again.</div>
-            <div id="map-canvas"></div>
-            <div id="results">
-            <h2>Places to Get It:</h2>
-            <ul id="places"></ul>
-            <div id="more" class="button">More results</div>
+            <!-- SELECTION -->
+            <div id="wrapper-home">      
+                <!-- Div for Icons-->
+                <div id="iconGrid">
+                    <?php
+                        showIcons($suggestions);
+                    ?>                
+                </div>    
+                <!-- Div for Go Button -->
+                <div id="button" onclick="getSuggestion()">Go</div>            
             </div>
-        </div>
-        <!--END of GOOGLE MAP & APP RESULTS-->
         
-        <!-- Last Suggestion -->
-        <p id="lastSuggestion"></p>
-        <!--JAVA SCRIPT WORKERS CODE-->
-        <p id="result"></p>
-        <script>
-            function ShowFoodSearch(foodtype)
-            {
-                document.getElementById('foodkind').innerHTML=foodtype;
-                googleMap(foodtype);                  
-            }            
-        </script>
+            <!-- MAP & RESULTS-->
+            <div id="wrapper-results" style="display: none;">
+                <p>Based on your preferences we recommend you have . . .</p>
+                <h1 id="foodkind">burgers</h1>
+                Not quite right? <div id="tryAgain" onclick="tryAgain()">Try Again.</div>
+                <div id="map-canvas"></div>
+                <div id="results">
+                <h2>Places to Get It:</h2>
+                <ul id="places"></ul>
+                <div id="more" class="button">More results</div>
+                </div>
+            </div>
+        
+            <!-- Last Suggestion -->
+            <p id="lastSuggestion"></p>
+            <!--JAVA SCRIPT WORKERS CODE-->
+            <p id="result"></p>
         </div>
     </body>
 </html>

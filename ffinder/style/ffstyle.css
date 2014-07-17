@@ -34,17 +34,7 @@ header {
 header img {
     display: block;
     margin: 0 auto;
-}
-
-
-/* LOGO */
-#logo {
-     /* width: 270px; */
-     margin: 0 auto;  
-     max-width: 82px;
-}
-#logo:hover {
-    
+    max-width: 25%;    
 }
 
 /*Animations*/
@@ -80,7 +70,6 @@ header img {
 /* H1, primarly for use with food suggestion result */
 h1 {
     color: #39b54a;
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
 }
 
 /******************************* 
@@ -88,7 +77,7 @@ h1 {
   PREFERENCE ICONS
     
 *******************************/
-#contentwrapper {
+#iconGrid {
      width: 65%;
      margin: 0 auto;
      padding: 0;
@@ -96,7 +85,7 @@ h1 {
      height: 100%;
      overflow: auto;
 }
-#contentwrapper div {
+#iconGrid div {
     float:left;
     position: relative;
     width: 30%;
@@ -108,10 +97,10 @@ h1 {
     transition: background-color 0.7s;
     cursor: pointer;
 }
-#contentwrapper div:nth-child(4) {
+#iconGrid div:nth-child(4) {
     clear: left;
 }
-#contentwrapper div p {
+#iconGrid div p {
     position:absolute;
     vertical-align: middle;
     display: table-cell;
