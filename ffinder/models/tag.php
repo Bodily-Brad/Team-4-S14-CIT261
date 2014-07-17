@@ -21,10 +21,28 @@ function tag_dbrecord_to_object($record)
 
 function get_tag($name)
 {
+    $record = get_tag_record($name);
+    if (empty($record))
+        return false;
     
+    return tag_dbrecord_to_object($record);
 }
 
-function tag_db_getTag($name)
+function get_tags()
+{
+    $records = get_tags_records();
+    $objects = array();
+    
+    foreach ($records as $record)
+    {
+        $object = tag_dbrecord_to_object($record);
+        $objects[] = $object;
+    }
+    
+    return $objects;
+}
+
+function get_tag_record($name)
 {
     global $db;
     
@@ -47,7 +65,7 @@ function tag_db_getTag($name)
     }
 }
 
-function tag_db_getTags()
+function get_tags_records()
 {
     global $db;
     

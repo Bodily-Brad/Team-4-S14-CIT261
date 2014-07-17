@@ -57,12 +57,12 @@ class Suggestion
         
         foreach ($compareQualities as $key => $value)
         {
-            if (array_key_exists($this->qualities, $key))
+            if (in_array($value, $this->qualities, true))
+            //if (array_key_exists($this->qualities, $key))
             {
                 $count++;                
             }
         }
-        
         return $count;
     }
     
@@ -72,7 +72,7 @@ class Suggestion
      */
     public function SetQuality($quality)
     {
-        $this->qualities[$quality] = true;
+        $this->qualities[] = $quality;
     }
 }
 

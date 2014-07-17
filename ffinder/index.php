@@ -32,7 +32,6 @@ and open the template in the editor.
             //$suggestions = suggestion_db_getSuggestions();
             $suggestions = get_representatives_records();
             $suggestions = get_representative_suggestions();
-            $tags = tag_db_getTags();
             
             include($_SERVER['DOCUMENT_ROOT'] . '/views/view_finder.php');
             break;

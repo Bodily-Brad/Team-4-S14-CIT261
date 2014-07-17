@@ -44,13 +44,54 @@
     $posArr = json_decode($positives);
     $negArr = json_decode($negatives);
     
+    // Build Positive Tags
+    $posTag = array();
+    foreach ($posArr as $suggestion)
+    {
+        //$test = get_tagAssignments_records_by_food('pizza');
+        $tags = get_tags_by_food($suggestion);
+        foreach ($tags as $tag)
+            $posArr[] = $tag;
+    }
+    
     // Get All Suggestions
     $suggestions = get_suggestions();
-    shuffle($suggestions);
     
-    $suggestion = array_pop($suggestions);
+    $highRank = 0;
+    $finalSuggestion = "";
     
-    $results = $suggestion->description;
+    // Set all qualities & check Rank
+    foreach ($suggestions as $suggestion)
+    {
+        $quals = get_tags_by_food($suggestion->name);
+        foreach ($quals as $qual)
+        {
+            $suggestion->SetQuality($qual);
+        }
+        
+        $rank = $suggestion->GetQualityRank($posArr) / $suggestion->GetQualityRank($quals);
+        if ($rank > $highRank)
+        {
+            $highRank = $rank;
+            $finalSuggestion = $suggestion->description;
+        }
+    }
+    
+
+    // Check for a 'winner' - if not, shuffle
+    if ($highRank == 0)
+    {
+        shuffle($suggestions);
+
+        $suggestion = array_pop($suggestions);
+
+        $results = $suggestion->description;        
+    }
+    else
+    {
+        $results = $finalSuggestion;
+    }
+    
     
     echo $results;
     

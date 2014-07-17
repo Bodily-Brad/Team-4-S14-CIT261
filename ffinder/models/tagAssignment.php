@@ -20,14 +20,14 @@ function tagAssignment_dbrecord_to_object($record)
     return $var;
 }
 
-function tagAssignment_db_getTagAssignmentsByFood($foodName)
+function get_tagAssignments_records_by_food($foodName)
 {
     global $db;
     
     $query = "
         SELECT *
         FROM TagAssignments
-        WHERE foodName = :tagAssignment_foodName";
+        WHERE suggestionName = :tagAssignment_foodName";
     
     try
     {
@@ -43,7 +43,20 @@ function tagAssignment_db_getTagAssignmentsByFood($foodName)
     }
 }
 
-function tagAssignment_db_getTagAssignments()
+function get_tags_by_food($foodName)
+{
+    $records = get_tagAssignments_records_by_food($foodName);
+    $tags = array();
+    
+    foreach ($records as $record)
+    {
+        $tags[] = $record['tagName'];
+    }
+    
+    return $tags;    
+}
+
+function get_tagAssignments_records()
 {
     global $db;
     
